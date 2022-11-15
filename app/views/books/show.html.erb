@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @book %>
+
+<div>
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to 'Add Review', book_reviews_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+
+  <%# button_to "Destroy this book", @book, method: :delete %>
+</div>
+<h2>Reviews</h2>
+  <ul>
+  <% @book.reviews.each do |review| %>
+    <li><%= review.body %></li>
+  <% end %>
+</ul>

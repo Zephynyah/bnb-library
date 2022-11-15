@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  mount Sidekiq::Web => "/sidekiq" if defined?(Sidekiq) # monitoring console
-  root "home#index"
+  resources :books do
+    resources :reviews
+  end
+  # root "home#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
+  # monitoring console
+  mount Sidekiq::Web => "/sidekiq" if defined?(Sidekiq)
+
   # Defines the root path route ("/")
-  # root "articles#index"
+  root 'books#index'
 end

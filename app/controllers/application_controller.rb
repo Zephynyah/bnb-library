@@ -1,3 +1,3 @@
 class ApplicationController < ActionController::Base
-  include BasicAuth
+  http_basic_authenticate_with name: 'sammy', password: 'wammy', except: [:index, :show]
 end

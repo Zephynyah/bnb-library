@@ -1,0 +1,26 @@
+<h1>Reviews</h1>
+
+<h3><%= @title %></h3>
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.body %></td>
+        <td><%= link_to 'Show Book', [@book] %></td>
+        <td><%= link_to 'Edit Review', edit_book_review_path(@book, review) %></td>
+        <td><%= link_to 'Destroy Review', [@book, review], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Review', new_book_review_path(@book) %>
